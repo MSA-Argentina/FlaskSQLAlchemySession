@@ -1,6 +1,0 @@
-setup.py
-FlaskSQLAlchemySession/__init__.py
-Flask_SQLAlchemySession.egg-info/PKG-INFO
-Flask_SQLAlchemySession.egg-info/SOURCES.txt
-Flask_SQLAlchemySession.egg-info/dependency_links.txt
-Flask_SQLAlchemySession.egg-info/top_level.txt
