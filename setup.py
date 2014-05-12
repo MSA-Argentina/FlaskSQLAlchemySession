@@ -15,7 +15,7 @@ setup(
     author_email='felipelerena@gmail.com',
     packages=['FlaskSQLAlchemySession'],
     scripts=[],
-    url='',
+    url='https://github.com/MSA-Argentina/FlaskSQLAlchemySession',
     license='LICENSE.txt',
     description='',
     long_description='',#open('README.txt').read(),
