@@ -1,1 +1,5 @@
 Flask_SQLAlchemySession.egg-info/*
+*.pyc
+*.swn
+*.swo
+*.swp
