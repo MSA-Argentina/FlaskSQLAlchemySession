@@ -3,3 +3,4 @@ Flask_SQLAlchemySession.egg-info/*
 *.swn
 *.swo
 *.swp
+dist
