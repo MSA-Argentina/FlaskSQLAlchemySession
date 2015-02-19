@@ -9,12 +9,15 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 _table_name = "sesiones"
+_data_serializer = pickle
 
 
-def set_db_session_interface(app, table_name=None):
-    global _table_name
+def set_db_session_interface(app, table_name=None, data_serializer=None):
+    global _table_name, _data_serializer
     if table_name is not None:
         _table_name = table_name
+    if data_serializer is not None:
+        _data_serializer = data_serializer
     db.init_app(app)
     app.session_interface = SQLAlchemySessionInterface()
     return app
@@ -52,7 +55,7 @@ class SQLAlchemySessionInterface(SessionInterface):
         else:
             val = Session.query.get(sid)
             if val is not None:
-                data = pickle.loads(val.data)
+                data = _data_serializer.loads(val.data)
                 ret = SQLAlchemySession(data, sid=sid)
             else:
                 ret = SQLAlchemySession(sid=sid, new=True)
@@ -72,7 +75,7 @@ class SQLAlchemySessionInterface(SessionInterface):
                 response.delete_cookie(app.session_cookie_name, domain=domain)
 
         else:
-            data = pickle.dumps(dict(session))
+            data = _data_serializer.dumps(dict(session))
             if val is None:
                 val = Session(session_id=session.sid, data=data, atime=now)
             else:
@@ -85,6 +88,7 @@ class SQLAlchemySessionInterface(SessionInterface):
         response.set_cookie(app.session_cookie_name, session.sid,
                             expires=now + timedelta(days=1), httponly=False,
                             domain=domain)
+
 
 class Session(db.Model):
     __tablename__ = _table_name
