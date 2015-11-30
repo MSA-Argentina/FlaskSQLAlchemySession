@@ -10,7 +10,7 @@ except ImportError:
 
 setup(
     name='Flask-SQLAlchemySession',
-    version='0.0.2',
+    version='0.0.3',
     author='Felipe Lerena',
     author_email='felipelerena@gmail.com',
     packages=['FlaskSQLAlchemySession'],
