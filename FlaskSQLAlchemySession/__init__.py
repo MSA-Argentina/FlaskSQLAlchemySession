@@ -9,7 +9,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 
 db = SQLAlchemy()
-_table_name = "sesiones"
+_table_name = "sessions"
 _data_serializer = pickle
 
 
