@@ -5,7 +5,7 @@ from datetime import timedelta, datetime
 from uuid import uuid4
 from werkzeug.datastructures import CallbackDict
 from flask.sessions import SessionInterface, SessionMixin
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 
 db = SQLAlchemy()
